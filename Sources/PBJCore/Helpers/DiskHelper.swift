@@ -1,5 +1,5 @@
 //
-//  DiskStatus.swift
+//  DiskHelper.swift
 //  stars2apples
 //
 //  Created by Ian Clawson on 2/9/20.
