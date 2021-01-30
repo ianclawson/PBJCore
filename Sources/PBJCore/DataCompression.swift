@@ -26,10 +26,10 @@
 ///  limitations under the License.
 ///
 
-
 import Foundation
 import Compression
 
+@available(iOS 11.0, macOS 10.11, *)
 public extension Data
 {
     /// Compresses the data.
@@ -264,10 +264,8 @@ public extension Data
     }
 }
 
-
-
-
 /// Struct based type representing a Crc32 checksum.
+@available(iOS 11.0, macOS 10.11, *)
 public struct Crc32: CustomStringConvertible
 {
     private static let zLibCrc32: ZLibCrc32FuncPtr? = loadCrc32fromZLib()
@@ -362,11 +360,8 @@ public struct Crc32: CustomStringConvertible
     ]
 }
 
-
-
-
-
 /// Struct based type representing a Adler32 checksum.
+@available(iOS 11.0, macOS 10.11, *)
 public struct Adler32: CustomStringConvertible
 {
     private static let zLibAdler32: ZLibAdler32FuncPtr? = loadAdler32fromZLib()
@@ -431,8 +426,7 @@ public struct Adler32: CustomStringConvertible
     }
 }
 
-
-
+@available(iOS 11.0, macOS 10.11, *)
 fileprivate extension Data
 {
     func withUnsafeBytes<ResultType, ContentType>(_ body: (UnsafePointer<ContentType>) throws -> ResultType) rethrows -> ResultType
@@ -443,6 +437,7 @@ fileprivate extension Data
     }
 }
 
+@available(iOS 11.0, macOS 10.11, *)
 fileprivate extension Data.CompressionAlgorithm
 {
     var lowLevelType: compression_algorithm {
@@ -455,10 +450,10 @@ fileprivate extension Data.CompressionAlgorithm
     }
 }
 
-
+@available(iOS 11.0, macOS 10.11, *)
 fileprivate typealias Config = (operation: compression_stream_operation, algorithm: compression_algorithm)
 
-
+@available(iOS 11.0, macOS 10.11, *)
 fileprivate func perform(_ config: Config, source: UnsafePointer<UInt8>, sourceSize: Int, preload: Data = Data()) -> Data?
 {
     guard config.operation == COMPRESSION_STREAM_ENCODE || sourceSize > 0 else { return nil }

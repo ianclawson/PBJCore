@@ -6,6 +6,7 @@
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
 //
 
+#if !os(macOS)
 import UIKit
 
 public enum PBJTableAction {
@@ -16,4 +17,4 @@ public enum PBJTableAction {
     case deselect(SelectAction)
     case edit([EditAction])
 }
-
+#endif

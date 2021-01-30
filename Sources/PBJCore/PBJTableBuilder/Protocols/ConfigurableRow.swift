@@ -6,6 +6,7 @@
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
 //
 
+#if !os(macOS)
 import UIKit
 
 public protocol PBJConfigurableRow {
@@ -17,4 +18,4 @@ public protocol PBJConfigurableRow {
     
     func configure(cell: UITableViewCell)
 }
-
+#endif

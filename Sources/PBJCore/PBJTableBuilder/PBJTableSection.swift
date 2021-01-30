@@ -6,6 +6,7 @@
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
 //
 
+#if !os(macOS)
 import UIKit
 
 public extension PBJTableSection {
@@ -89,4 +90,4 @@ public extension PBJTableSection {
     
     func numberOfRows() -> Int { return rows.count }
 }
-
+#endif

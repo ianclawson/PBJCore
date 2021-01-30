@@ -6,7 +6,8 @@
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
 //
 
-import Foundation
+//import Foundation
+#if !os(macOS)
 import UIKit
 
 extension UIDevice {
@@ -151,3 +152,4 @@ extension UIDevice {
     """
     
 }
+#endif

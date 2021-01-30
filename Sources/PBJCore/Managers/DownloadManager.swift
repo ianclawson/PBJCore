@@ -12,6 +12,7 @@
 
 import Foundation
 
+#if !os(macOS)
 class DownloadManager: NSObject, URLSessionDelegate, URLSessionDownloadDelegate {
     
     static var shared = DownloadManager()
@@ -27,12 +28,10 @@ class DownloadManager: NSObject, URLSessionDelegate, URLSessionDownloadDelegate 
         return queue
     }()
     
-    #if !os(macOS)
     typealias ProgressHandler = (Float) -> ()
     typealias EndHandler = (Data?, Error?) -> ()
     var onProgress : ProgressHandler?
     var onFinish : EndHandler?
-    #endif
     
     private override init() {
         super.init()
@@ -77,19 +76,15 @@ class DownloadManager: NSObject, URLSessionDelegate, URLSessionDownloadDelegate 
     // DELEGATE METHODS
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
-        #if !os(macOS)
-        
         if totalBytesExpectedToWrite > 0 {
             if let onProgress = onProgress {
                 calculateProgress(session: session, completionHandler: onProgress)
             }
             print("<><><><><><><><><><><> - \(downloadTask) \(Float(totalBytesWritten) / Float(totalBytesExpectedToWrite))")
         }
-        #endif
     }
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        #if !os(macOS)
         do {
             let downloadedData = try Data(contentsOf: location)
             DispatchQueue.main.async(execute: {
@@ -109,26 +104,25 @@ class DownloadManager: NSObject, URLSessionDelegate, URLSessionDownloadDelegate 
         } catch {
             print(error.localizedDescription)
         }
-        #endif
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         if let error = error {
             print("<><><><><><><><><><><> Task completed: \(task), error: \(error)")
             print(error)
+            
             if let onFinish = self.onFinish {
                 onFinish(nil, error)
             }
         }
     }
     
-    #if !os(macOS)
 //    func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession) {
 //        DispatchQueue.main.async {
 //            self.savedCompletionHandler?()
 //            self.savedCompletionHandler = nil
 //        }
 //    }
-    #endif
     
 }
+#endif

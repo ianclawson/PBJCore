@@ -6,6 +6,7 @@
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
 //
 
+#if !os(macOS)
 import UIKit
 
 public struct PBJTableRow<CellType: UITableViewCell>: PBJConfigurableRow where CellType: PBJConfigurableCell {
@@ -26,4 +27,4 @@ public struct PBJTableRow<CellType: UITableViewCell>: PBJConfigurableRow where C
         (cell as? CellType)?.configure(with: item)
     }
 }
-
+#endif

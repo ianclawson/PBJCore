@@ -6,6 +6,7 @@
 //  Copyright © 2019 Ian Clawson Apps. All rights reserved.
 //
 
+#if !os(macOS)
 import UIKit
 
 class PortraitNavigationController: UINavigationController {
@@ -19,3 +20,4 @@ class PortraitNavigationController: UINavigationController {
     }
 
 }
+#endif

@@ -6,6 +6,7 @@
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
 //
 
+#if !os(macOS)
 import UIKit
 
 /// Defines a structure for representing a user-agent. You can
@@ -122,3 +123,4 @@ private extension UIDevice {
     }
     
 }
+#endif

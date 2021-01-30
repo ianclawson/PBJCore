@@ -6,6 +6,7 @@
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
 //
 
+#if !os(macOS)
 import UIKit
 
 extension UIView {
@@ -177,3 +178,4 @@ class ToolTipQueue: UIViewController {
         }
     }
 }
+#endif

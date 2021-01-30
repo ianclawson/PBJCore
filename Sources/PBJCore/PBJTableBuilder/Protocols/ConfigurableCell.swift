@@ -6,6 +6,7 @@
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
 //
 
+#if !os(macOS)
 import UIKit
 
 public protocol PBJConfigurableCell {
@@ -32,4 +33,4 @@ public extension PBJConfigurableCell where Self: UITableViewCell {
         return 200
     }
 }
-
+#endif

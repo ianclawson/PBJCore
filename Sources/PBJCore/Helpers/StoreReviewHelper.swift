@@ -9,38 +9,30 @@
 import Foundation
 import StoreKit
 
+@available(iOS 10.3, macOS 10.14, *)
 struct StoreReviewHelper {
     static func checkAndAskForReview(hasAskedThisSession: Bool, numTimesAppOpened: Int, numTimesReviewPrompted: Int) -> Bool {
         
         // only ask once per session
         if hasAskedThisSession {
-            return
+            return false
         }
         
         // never ask more than 3 times in total ever
         guard numTimesReviewPrompted <= 3 else {
-            return
+            return false
         }
         
         switch numTimesAppOpened {
         case 10:
-            StoreReviewHelper().requestReview()
+            SKStoreReviewController.requestReview()
             return true
         case _ where numTimesAppOpened % 20 == 0 :
-            StoreReviewHelper().requestReview()
+            SKStoreReviewController.requestReview()
             return true
         default:
             print("App run count is : \(numTimesAppOpened)")
             return false
-        }
-    }
-    fileprivate func requestReview() {
-        if #available(iOS 10.3, *) {
-            // `requestReview` will not be shown everytime. Apple has some internal logic on how to show this.
-            SKStoreReviewController.requestReview()
-        } else {
-            // Fallback on earlier versions
-            // Try any other 3rd party or manual method here.
         }
     }
 }

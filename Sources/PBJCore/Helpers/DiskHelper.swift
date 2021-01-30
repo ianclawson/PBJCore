@@ -6,7 +6,10 @@
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
 //
 
+
 import Foundation
+
+#if !os(macOS)
 import UIKit
 
 class DiskHelper {
@@ -92,3 +95,4 @@ extension DiskHelper {
         return "\(sizeInMb)KB"
     }
 }
+#endif

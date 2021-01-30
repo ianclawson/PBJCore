@@ -6,6 +6,7 @@
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
 //
 
+#if !os(macOS)
 import Foundation
 
 class ToolTipTracker {
@@ -34,3 +35,4 @@ class ToolTipTracker {
         tooltips.removeAll()
     }
 }
+#endif

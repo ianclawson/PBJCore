@@ -6,6 +6,7 @@
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
 //
 
+#if !os(macOS)
 import UIKit
 
 class PBJLaunchCondition: NSObject {
@@ -123,3 +124,4 @@ class PBJLaunchViewController: UIViewController {
     }
 
 }
+#endif

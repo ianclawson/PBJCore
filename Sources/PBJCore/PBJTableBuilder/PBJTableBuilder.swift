@@ -6,6 +6,7 @@
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
 //
 
+#if !os(macOS)
 import UIKit
 
 //        let identitySection = PBJTableSection(
@@ -279,4 +280,4 @@ extension PBJTableBuilder: UITableViewDelegate {
         }
     }
 }
-
+#endif

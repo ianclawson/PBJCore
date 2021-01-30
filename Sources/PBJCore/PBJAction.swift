@@ -6,7 +6,7 @@
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
 //
 
-import Foundation
+#if !os(macOS)
 import UIKit
 /**
     A wrapper over various UI actions so actions from different comntexts can be used 
@@ -139,3 +139,4 @@ extension PBJAction {
         return PBJAction(title: title, style: isDestructive ? .destructive : .default, image: image, action: action)
     }
 }
+#endif

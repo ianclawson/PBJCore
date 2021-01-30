@@ -6,6 +6,7 @@
 //  Copyright © 2018 Ian Clawson Apps. All rights reserved.
 //
 
+#if !os(macOS)
 import UIKit
 
 class LandscapeNavigationController: UINavigationController {
@@ -28,3 +29,4 @@ class LandscapeNavigationController: UINavigationController {
         }
     }
 }
+#endif

@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Arne Bahlo. All rights reserved.
 //
 
+#if !os(macOS)
 import UIKit
 import ImageIO
 
@@ -220,3 +221,4 @@ extension UIImage {
     }
 
 }
+#endif
