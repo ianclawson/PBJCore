@@ -1,5 +1,5 @@
 //
-//  DiskHelper.swift
+//  DiskSpaceHelper.swift
 //  PBJCore
 //
 //  Created by Ian Clawson on 2/9/20.
@@ -12,9 +12,9 @@ import Foundation
 #if !os(macOS)
 import UIKit
 
-public class DiskHelper {
+public class DiskSpaceHelper {
     
-    class func format(_ bytes: Int64, in units: ByteCountFormatter.Units = .useMB) -> String {
+    public class func format(_ bytes: Int64, in units: ByteCountFormatter.Units = .useMB) -> String {
         let formatter = ByteCountFormatter()
         formatter.allowedUnits = units
         formatter.countStyle = ByteCountFormatter.CountStyle.decimal
@@ -23,19 +23,19 @@ public class DiskHelper {
     }
 
     //MARK: Get String Value
-    class var totalDiskSpace: String {
+    public class var totalDiskSpace: String {
         get {
             return ByteCountFormatter.string(fromByteCount: totalDiskSpaceInBytes, countStyle: ByteCountFormatter.CountStyle.binary)
         }
     }
 
-    class var freeDiskSpace: String {
+    public class var freeDiskSpace: String {
         get {
             return ByteCountFormatter.string(fromByteCount: freeDiskSpaceInBytes, countStyle: ByteCountFormatter.CountStyle.binary)
         }
     }
 
-    class var usedDiskSpace: String {
+    public class var usedDiskSpace: String {
         get {
             return ByteCountFormatter.string(fromByteCount: usedDiskSpaceInBytes, countStyle: ByteCountFormatter.CountStyle.binary)
         }
@@ -43,7 +43,7 @@ public class DiskHelper {
 
 
     // MARK: Get raw value
-    class var totalDiskSpaceInBytes: Int64 {
+    public class var totalDiskSpaceInBytes: Int64 {
         get {
             do {
                 let systemAttributes = try FileManager.default.attributesOfFileSystem(forPath: NSHomeDirectory() as String)
@@ -55,7 +55,7 @@ public class DiskHelper {
         }
     }
 
-    class var freeDiskSpaceInBytes: Int64 {
+    public class var freeDiskSpaceInBytes: Int64 {
         get {
             do {
                 let systemAttributes = try FileManager.default.attributesOfFileSystem(forPath: NSHomeDirectory() as String)
@@ -67,7 +67,7 @@ public class DiskHelper {
         }
     }
 
-    class var usedDiskSpaceInBytes: Int64 {
+    public class var usedDiskSpaceInBytes: Int64 {
         get {
             let usedSpace = totalDiskSpaceInBytes - freeDiskSpaceInBytes
             return usedSpace
@@ -76,22 +76,22 @@ public class DiskHelper {
 
 }
 
-public extension DiskHelper {
+public extension DiskSpaceHelper {
     class func sizeDescText(for sizeInBytes: NSNumber) -> String {
         let roundedSize = Int64(truncating: sizeInBytes)
         if roundedSize >= 1_000_000_000_000 {
-            let sizeInMb = DiskHelper.format(Int64(truncating: sizeInBytes), in: .useTB)
+            let sizeInMb = DiskSpaceHelper.format(Int64(truncating: sizeInBytes), in: .useTB)
             return "\(sizeInMb)TB"
         }
         if roundedSize >= 1_000_000_000 {
-            let sizeInMb = DiskHelper.format(Int64(truncating: sizeInBytes), in: .useGB)
+            let sizeInMb = DiskSpaceHelper.format(Int64(truncating: sizeInBytes), in: .useGB)
             return "\(sizeInMb)GB"
         }
         if roundedSize >= 1_000_000 {
-            let sizeInMb = DiskHelper.format(Int64(truncating: sizeInBytes), in: .useMB)
+            let sizeInMb = DiskSpaceHelper.format(Int64(truncating: sizeInBytes), in: .useMB)
             return "\(sizeInMb)MB"
         }
-        let sizeInMb = DiskHelper.format(Int64(truncating: sizeInBytes), in: .useKB)
+        let sizeInMb = DiskSpaceHelper.format(Int64(truncating: sizeInBytes), in: .useKB)
         return "\(sizeInMb)KB"
     }
 }
