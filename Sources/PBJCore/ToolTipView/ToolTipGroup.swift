@@ -54,7 +54,7 @@ public class ToolTipQueue: UIViewController {
     var padding: CGFloat = 8.0
     var positionInQueue = 0
     
-    class func present(tips: [GroupToolTip]) { // single group
+    public class func present(tips: [GroupToolTip]) { // single group
         let window = UIWindow(frame: UIScreen.main.bounds)
         
         let viewController = ToolTipQueue()
@@ -66,7 +66,7 @@ public class ToolTipQueue: UIViewController {
         window.makeKeyAndVisible()
     }
     
-    class func present(groups: [[GroupToolTip]]) { // queue of groups
+    public class func present(groups: [[GroupToolTip]]) { // queue of groups
         let window = UIWindow(frame: UIScreen.main.bounds)
         
         let viewController = ToolTipQueue()
