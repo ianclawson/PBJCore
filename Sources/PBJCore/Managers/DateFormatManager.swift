@@ -34,18 +34,6 @@ public enum DateFormatType {
     }
 }
 
-// separate/duplicate functions for convenience in case I
-// get lazy and forget that they belong to `DateFormatManager`
-public extension DateFormatter {
-    class func date(from: String, format: DateFormatType) -> Date? {
-        return DateFormatManager.shared.date(from: from, format: format)
-    }
-    
-    class func string(from: Date, format: DateFormatType) -> String {
-        return DateFormatManager.shared.string(from: from, format: format)
-    }
-}
-
 public class DateFormatManager {
     
     public static let shared = DateFormatManager()
@@ -61,5 +49,18 @@ public class DateFormatManager {
     func string(from: Date, format: DateFormatType) -> String {
         self.formatter.dateFormat = format.formatString()
         return formatter.string(from: from)
+    }
+}
+
+// separate/duplicate functions for convenience in case I
+// get lazy and forget that they belong to `DateFormatManager`
+// and because it's nice not to type `DateFormatManager.shared`
+public extension DateFormatter {
+    class func date(from: String, format: DateFormatType) -> Date? {
+        return DateFormatManager.shared.date(from: from, format: format)
+    }
+    
+    class func string(from: Date, format: DateFormatType) -> String {
+        return DateFormatManager.shared.string(from: from, format: format)
     }
 }

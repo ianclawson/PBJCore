@@ -112,11 +112,11 @@ public extension UITableView {
         cell?.textLabel?.text = titleText
         cell?.detailTextLabel?.text = detailText
         
-//        if detailText == Constants.REQUIRED_LABEL {
-//            cell?.detailTextLabel?.textColor = .red
-//        } else {
-//            cell?.detailTextLabel?.textColor = .gray
-//        }
+        if detailText == "(required)" {
+            cell?.detailTextLabel?.textColor = .red
+        } else {
+            cell?.detailTextLabel?.textColor = .gray
+        }
         
 //        if let fileSize = fileSize {
 //            cell?.detailTextLabel?.text = DiskHelper.sizeDescText(for: NSNumber(value: fileSize))
