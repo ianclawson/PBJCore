@@ -9,11 +9,26 @@
 #if !os(macOS)
 import UIKit
 
+extension NSLayoutConstraint {
+    class func constraintsPinningEdgesOf(_ view1: UIView, toEdgesOf view2: UIView) -> [NSLayoutConstraint]? {
+        return self.constraintsPinningEdgesOf(view1, toEdgesOf: view2, with: .zero)
+    }
+
+    class func constraintsPinningEdgesOf(_ view1: UIView, toEdgesOf view2: UIView, with insets: UIEdgeInsets) -> [NSLayoutConstraint]? {
+        let topConstraint = view1.topAnchor.constraint(equalTo: view2.topAnchor, constant: insets.top)
+        let bottomConstraint = view2.bottomAnchor.constraint(equalTo: view1.bottomAnchor, constant: insets.bottom)
+        let leftConstraint = view1.leftAnchor.constraint(equalTo: view2.leftAnchor, constant: insets.left)
+        let rightConstraint = view2.rightAnchor.constraint(equalTo: view1.rightAnchor, constant: insets.right)
+
+        return [topConstraint, bottomConstraint, leftConstraint, rightConstraint].compactMap { $0 }
+    }
+}
+
 extension UIView {
     
-    public convenience init(superView: UIView, padding: CGFloat) {
-        self.init(frame: CGRect(x: superView.x() + padding, y: superView.y() + padding, width: superView.width() - padding*2, height: superView.height() - padding*2))
-    }
+//    public convenience init(superView: UIView, padding: CGFloat) {
+//        self.init(frame: CGRect(x: superView.x() + padding, y: superView.y() + padding, width: superView.width() - padding*2, height: superView.height() - padding*2))
+//    }
     
     func pin(to view: UIView) {
         NSLayoutConstraint.activate([
@@ -115,7 +130,7 @@ extension UIView {
         view.centerXAnchor.constraint(equalTo: outerView.safeAreaLayoutGuide.centerXAnchor).isActive = true
         view.centerYAnchor.constraint(
             equalTo: outerView.safeAreaLayoutGuide.centerYAnchor,
-            constant: isDeviceLandscape()
+            constant: UIDevice.isCurrentlyLandscape()
                 ? 70
                 : 0
         ).isActive = true

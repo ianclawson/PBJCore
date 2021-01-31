@@ -15,10 +15,9 @@ extension UIImageView {
         self.tintColor = color
     }
     
-    
     func getNewHeightUsing(heightPercentage: CGFloat? = nil, widthPercentage: CGFloat? = nil) -> CGSize? {
-        let hp : CGFloat? = heightPercentage > 0 ? heightPercentage : nil
-        let wp : CGFloat? = widthPercentage > 0 ? widthPercentage : nil
+        let hp : CGFloat? = (heightPercentage != nil && heightPercentage! > 0) ? heightPercentage : nil
+        let wp : CGFloat? = (widthPercentage != nil && widthPercentage! > 0) ? widthPercentage : nil
         
         if let image = image {
             let screenHeight = UIScreen.main.bounds.height

@@ -69,7 +69,7 @@ extension UITableView {
         self.backgroundView = UIView.makeEmptyStateView(bounds: self.bounds, message: message, image: image, detailMessage: detailMessage)
     }
     
-    func setLoadingState(color: UIColor = .primaryTint) {
+    func setLoadingState(color: UIColor) {
         let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(style: .gray)
         activityIndicator.color = color
         activityIndicator.startAnimating()
@@ -112,11 +112,11 @@ extension UITableView {
         cell?.textLabel?.text = titleText
         cell?.detailTextLabel?.text = detailText
         
-        if detailText == Constants.REQUIRED_LABEL {
-            cell?.detailTextLabel?.textColor = .red
-        } else {
-            cell?.detailTextLabel?.textColor = .gray
-        }
+//        if detailText == Constants.REQUIRED_LABEL {
+//            cell?.detailTextLabel?.textColor = .red
+//        } else {
+//            cell?.detailTextLabel?.textColor = .gray
+//        }
         
 //        if let fileSize = fileSize {
 //            cell?.detailTextLabel?.text = DiskHelper.sizeDescText(for: NSNumber(value: fileSize))

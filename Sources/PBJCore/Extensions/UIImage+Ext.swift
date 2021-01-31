@@ -27,6 +27,12 @@ import UIKit
 //    open class var strokedCheckmark: UIImage { get }
 //}
 
+public enum ImageType : String, Codable {
+    case jpeg
+    case png
+    case gif
+}
+
 extension UIImage
 {
 //    convenience init?(symbolNameIfAvailable name: String)
@@ -70,16 +76,17 @@ extension UIImage
         }
     }
     
-    func jpegData() -> Data? {
-        return self.jpegData(compressionQuality: Constants.JPG_COMPRESSION_QUALITY)
+    func jpegData(_ quality: CGFloat = 0.1) -> Data? {
+        return self.jpegData(compressionQuality: quality)
     }
     
-    func gifData() -> Data? {
-        if let gifData = try? AnimatedGIFImageSerialization.animatedGIFData(with: self) {
-            return gifData
-        }
-        return nil
-    }
+    // TODO: aniamted gif serialization is not a swift package, do it doesn't work in this package
+//    func gifData() -> Data? {
+//        if let gifData = try? AnimatedGIFImageSerialization.animatedGIFData(with: self) {
+//            return gifData
+//        }
+//        return nil
+//    }
     
     func asData(type: ImageType) -> Data? {
         switch type {
@@ -88,7 +95,8 @@ extension UIImage
         case .png:
             return self.pngData()
         case .gif:
-            return self.gifData()
+//            return self.gifData()
+            return nil
         }
     }
 }

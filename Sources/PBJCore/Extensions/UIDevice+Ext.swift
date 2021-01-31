@@ -1,5 +1,5 @@
 //
-//  UIDeviceOrientation+Ext.swift
+//  UIDevice+Ext.swift
 //  
 //
 //  Created by Ian Clawson on 1/30/21.
@@ -7,6 +7,19 @@
 
 #if !os(macOS)
 import UIKit
+
+extension UIDevice {
+    class func isCurrentlyLandscape() -> Bool {
+        return UIDevice.current.orientation.isValidInterfaceOrientation
+            ? UIDevice.current.orientation.isLandscape
+            : UIApplication.shared.statusBarOrientation.isLandscape
+    }
+    class func isCurrentlyPortrait() -> Bool {
+        return UIDevice.current.orientation.isValidInterfaceOrientation
+            ? UIDevice.current.orientation.isPortrait
+            : UIApplication.shared.statusBarOrientation.isPortrait
+    }
+}
 
 extension UIDeviceOrientation {
     var uiInterfaceOrientation: UIInterfaceOrientation {

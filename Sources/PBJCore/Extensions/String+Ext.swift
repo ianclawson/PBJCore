@@ -56,6 +56,7 @@ extension String {
         }
         return nil
     }
+    
     var containsEmoji: Bool {
         for scalar in unicodeScalars {
             switch scalar.value {
@@ -72,14 +73,7 @@ extension String {
         }
         return false
     }
-    var containsSpecialCharacters: Bool {
-        let characterset = CharacterSet(charactersIn: Constants.PERMITTED_TAG_CHARACTERS)
-        if rangeOfCharacter(from: characterset.inverted) != nil {
-            return true
-        }
-        return false
-    }
-    var containsWhitespace : Bool {
+    var containsWhitespace: Bool {
         return(self.rangeOfCharacter(from: .whitespacesAndNewlines) != nil)
     }
     var containsNonAlphabeticCharacters: Bool {
@@ -89,36 +83,26 @@ extension String {
         }
         return false
     }
+    func containsCharactersIn(charSet: String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") -> Bool {
+        let characterset = CharacterSet(charactersIn: charSet)
+        if rangeOfCharacter(from: characterset.inverted) != nil {
+            return true
+        }
+        return false
+    }
+    
     func removeSpecialChatacters() -> String {
         return components(separatedBy: CharacterSet.symbols).joined(separator: "").replacingOccurrences(of: "/", with: "").replacingOccurrences(of: "\\", with: "")
-    }
-    func tagify() -> String {
-        return lowercased().trimmingCharacters(in: .whitespacesAndNewlines).trimmingCharacters(in: CharacterSet(charactersIn: Constants.PERMITTED_TAG_CHARACTERS).inverted)
     }
     func removeWhitespaceFromBothEnds() -> String {
         return trimmingCharacters(in: .whitespacesAndNewlines)
     }
+    
     func fileNameWithoutExtension() -> String {
         return NSURL(fileURLWithPath: self).deletingPathExtension?.lastPathComponent ?? ""
     }
-    
     func fileExtension() -> String {
         return NSURL(fileURLWithPath: self).pathExtension ?? ""
-    }
-    
-    func getGoogleFileIdFromUrl() -> String? {
-        let googleFileIdUrlComponents = components(separatedBy: "/")
-        var idIndex = 0
-        for (componentIndex, component) in googleFileIdUrlComponents.enumerated() {
-            if component == "d" {
-                idIndex = componentIndex + 1
-                break
-            }
-        }
-        if let driveFileId = googleFileIdUrlComponents[safe: idIndex] {
-            return driveFileId
-        }
-        return nil
     }
 }
 #endif

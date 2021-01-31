@@ -28,7 +28,7 @@ extension UIBarButtonItem {
         return UIBarButtonItem(customView: button)
     }
     
-    class func loadingItem(color: UIColor = .primaryTint) -> UIBarButtonItem {
+    class func loadingItem(color: UIColor) -> UIBarButtonItem {
         let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(style: .gray)
         activityIndicator.color = color
         let loadingBarButton: UIBarButtonItem = UIBarButtonItem(customView: activityIndicator)
