@@ -1,6 +1,6 @@
 //
 //  UITextField+Ext.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 6/1/20.
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
@@ -9,7 +9,7 @@
 #if !os(macOS)
 import UIKit
 
-extension UITextField {
+public extension UITextField {
     
     func left(image: UIImage?, color: UIColor = .black) {
         if let image = image {

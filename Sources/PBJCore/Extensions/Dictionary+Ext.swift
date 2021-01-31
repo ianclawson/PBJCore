@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Dictionary {
+public extension Dictionary {
     
     // Loads a JSON file from the app bundle into a new dictionary
     static func loadJSONFromBundle(filename: String) -> Dictionary <String, AnyObject>? {

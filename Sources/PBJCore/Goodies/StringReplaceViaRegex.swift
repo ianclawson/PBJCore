@@ -1,6 +1,6 @@
 //
 //  StringReplaceViaRegex.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 1/20/21.
 //  Copyright © 2021 Ian Clawson Apps. All rights reserved.
@@ -53,8 +53,8 @@ import Foundation
 
 private let groupRegex = try! NSRegularExpression(pattern: #"\{(\d+)\}"#, options: [])
 
-extension String {
-    public func replace(using replacements: [Int: String]) -> String {
+public extension String {
+    func replace(using replacements: [Int: String]) -> String {
         let ns = self as NSString
         let matches = groupRegex.matches(in: self, options: [], range: NSRange(location: 0, length: ns.length))
         var endOfRange = ns.length

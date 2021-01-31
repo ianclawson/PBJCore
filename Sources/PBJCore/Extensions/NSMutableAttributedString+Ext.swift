@@ -1,6 +1,6 @@
 //
 //  NSMutableAttributedString+Ext.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 2/26/20.
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
@@ -9,7 +9,7 @@
 #if !os(macOS)
 import UIKit
 
-extension NSMutableAttributedString {
+public extension NSMutableAttributedString {
     func setColorForText(textForAttribute: String, withColor color: UIColor) {
         let range: NSRange = self.mutableString.range(of: textForAttribute, options: .caseInsensitive)
         self.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)

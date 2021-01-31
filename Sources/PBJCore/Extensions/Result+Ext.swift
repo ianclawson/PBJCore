@@ -7,11 +7,11 @@
 
 import Foundation
 
-extension Result where Success == Void {
+public extension Result where Success == Void {
     static var success: Result<Success, Failure> { .success(()) }
 }
 
-extension Result {
+public extension Result {
     var success: Success? {
         guard case .success(let s) = self else { return nil }
         return s
@@ -24,7 +24,7 @@ extension Result {
     var isFailure: Bool { failure != nil }
 }
 
-extension Result where Success == Void, Failure == Error {
+public extension Result where Success == Void, Failure == Error {
     init(_ error: Error?) {
         if let error = error {
             self = .failure(error)

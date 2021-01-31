@@ -1,6 +1,6 @@
 //
 //  Action.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 2/15/20.
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
@@ -11,7 +11,7 @@ import UIKit
 /**
     A wrapper over various UI actions so actions from different comntexts can be used 
  */
-struct PBJAction {
+public struct PBJAction {
     var title: String
     var style: Style
     var image: UIImage? = nil
@@ -26,7 +26,7 @@ struct PBJAction {
     }
 }
 
-extension PBJAction {
+public extension PBJAction {
     enum Style {
         case `default`
         case cancel
@@ -53,7 +53,7 @@ extension PBJAction {
 }
 
 @available(iOS 13, *)
-extension PBJAction.Style {
+public extension PBJAction.Style {
     var menuAttributes: UIMenuElement.Attributes {
         switch self
         {
@@ -71,7 +71,7 @@ extension PBJAction.Style {
     }
 }
 
-extension UIAlertAction {
+public extension UIAlertAction {
     convenience init(_ action: PBJAction)
     {
         self.init(title: action.title, style: action.style.alertActionStyle) { (alertAction) in
@@ -80,7 +80,7 @@ extension UIAlertAction {
     }
 }
 
-extension UIPreviewAction {
+public extension UIPreviewAction {
     convenience init?(_ action: PBJAction) {
         guard let previewActionStyle = action.style.previewActionStyle else { return nil }
         
@@ -90,7 +90,7 @@ extension UIPreviewAction {
     }
 }
 
-extension UIAlertController {
+public extension UIAlertController {
     convenience init(actions: [PBJAction]) {
         self.init(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -102,7 +102,7 @@ extension UIAlertController {
 }
 
 @available(iOS 13.0, *)
-extension UIAction {
+public extension UIAction {
     convenience init?(_ action: PBJAction) {
         guard action.style != .cancel else { return nil }
         
@@ -112,7 +112,7 @@ extension UIAction {
     }
 }
 
-extension RangeReplaceableCollection where Iterator.Element == PBJAction {
+public extension RangeReplaceableCollection where Iterator.Element == PBJAction {
     var alertActions: [UIAlertAction] {
         let actions = self.map { UIAlertAction($0) }
         return actions
@@ -130,7 +130,7 @@ extension RangeReplaceableCollection where Iterator.Element == PBJAction {
     }
 }
 
-extension PBJAction {
+public extension PBJAction {
     static var cancel: PBJAction {
         return PBJAction(title: "Cancel", style: .cancel, action: nil)
     }

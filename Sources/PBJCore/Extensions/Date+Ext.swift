@@ -1,6 +1,6 @@
 //
 //  Date+Ext.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 9/2/20.
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Date {
+public extension Date {
     static var dawnOfTime: Date {
         return Date(timeIntervalSince1970: 1)
     }
@@ -449,13 +449,13 @@ public extension Date {
     }
 }
 
-extension Date {
-    public var clampedDateRoundedTo15: Date {
+public extension Date {
+    var clampedDateRoundedTo15: Date {
         let remainingSeconds = self.timeIntervalSinceReferenceDate.truncatingRemainder(dividingBy: TimeInterval(15*60))
         let timeRoundedToInterval = self.timeIntervalSinceReferenceDate - remainingSeconds
         return Date(timeIntervalSinceReferenceDate: timeRoundedToInterval)
     }
-    public var displayString: String {
-        return DateFormatManager.shared.dayOfWeekMonthDayAndTime.string(from: self)
+    var displayString: String {
+        return DateFormatHelper.string(from: self, format: .displayDayOfWeekMonthDayTime)
     }
 }

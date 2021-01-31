@@ -1,6 +1,6 @@
 //
 //  Tooltip.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 2/15/20.
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
@@ -9,9 +9,9 @@
 #if !os(macOS)
 import UIKit
 
-class ToolTip: UIView {
+public class ToolTip: UIView {
     
-    enum Location {
+    public enum Location {
         case top
         case bottom
         case left
@@ -19,7 +19,7 @@ class ToolTip: UIView {
         case none
     }
     
-    enum Style {
+    public enum Style {
         case dark
         case light
         
@@ -154,12 +154,12 @@ class ToolTip: UIView {
         effectBackground.mask = maskView
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         refreshBackground()
     }
     
-    override var bounds: CGRect {
+    public override var bounds: CGRect {
         didSet {
             refreshBackground()
         }

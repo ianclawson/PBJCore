@@ -8,7 +8,7 @@
 #if !os(macOS)
 import UIKit
 
-extension UISegmentedControl {
+public extension UISegmentedControl {
     func replaceSegments(segments: Array<String>) {
         self.removeAllSegments()
         for segment in segments {

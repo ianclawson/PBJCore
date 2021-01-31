@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension UInt64 {
+public extension UInt64 {
     var prettyPrintDataSizeInMB: String {
         let bcf = ByteCountFormatter()
         bcf.allowedUnits = [.useMB]
@@ -16,19 +16,19 @@ extension UInt64 {
     }
 }
 
-extension NSData {
+public extension NSData {
     func convertToBase64EncodedString() -> String? {
         return self.base64EncodedString()
     }
 }
 
-extension Data {
-    public var asString: String? {
+public extension Data {
+    var asString: String? {
         return String(data: self, encoding: String.Encoding.utf8)
     }
 }
 
-extension Data {
+public extension Data {
     func convertToBase64EncodedString() -> String {
         return self.base64EncodedString()
     }
@@ -61,7 +61,7 @@ extension Data {
 
 /// Extension for making base64 representations of `Data` safe for
 /// transmitting via URL query parameters
-extension Data {
+public extension Data {
     
     /// Instantiates data by decoding a base64url string into base64
     ///
@@ -80,7 +80,7 @@ extension Data {
     
 }
 
-extension String {
+public extension String {
     
     /// Encodes or decodes into a base64url safe representation
     ///

@@ -8,7 +8,7 @@
 #if !os(macOS)
 import UIKit
 
-extension UIButton {
+public extension UIButton {
     func setTitle(_ title: String?, for state: UIControl.State, animated: Bool) {
         if animated {
             self.setTitle(title, for: state)

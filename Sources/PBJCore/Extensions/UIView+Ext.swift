@@ -1,6 +1,6 @@
 //
 //  UIView+Ext.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 2/15/20.
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
@@ -9,7 +9,7 @@
 #if !os(macOS)
 import UIKit
 
-extension UIView {
+public extension UIView {
     
 //    public convenience init(superView: UIView, padding: CGFloat) {
 //        self.init(frame: CGRect(x: superView.x() + padding, y: superView.y() + padding, width: superView.width() - padding*2, height: superView.height() - padding*2))
@@ -125,7 +125,7 @@ extension UIView {
 }
 
 #if DEBUG
-extension UIView {
+public extension UIView {
     func debugBorder(color: UIColor = .red, debugBackground: Bool = false) {
         self.layer.borderWidth = 1
         self.layer.borderColor = color.cgColor
@@ -141,7 +141,7 @@ extension UIView {
 //
 // https://stackoverflow.com/questions/39283807/how-to-take-screenshot-of-portion-of-uiview
 
-extension UIView {
+public extension UIView {
 
     /// Create image snapshot of view.
     ///
@@ -158,7 +158,7 @@ extension UIView {
     }
 }
 
-//extension UIView {
+//public extension UIView {
 //
 //    /// Create snapshot
 //    ///
@@ -188,7 +188,7 @@ extension UIView {
 //
 //}
 
-extension NSLayoutConstraint {
+public extension NSLayoutConstraint {
     class func constraintsPinningEdgesOf(_ view1: UIView, toEdgesOf view2: UIView) -> [NSLayoutConstraint]? {
         return self.constraintsPinningEdgesOf(view1, toEdgesOf: view2, with: .zero)
     }

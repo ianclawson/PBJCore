@@ -1,6 +1,6 @@
 //
 //  StoreReviewHelper.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 2/26/19.
 //  Copyright © 2019 Ian Clawson Apps. All rights reserved.

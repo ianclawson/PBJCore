@@ -1,6 +1,6 @@
 ////
 ////  Lenient.swift
-////  stars2apples
+////  PBJCore
 ////
 ////  Created by Ian Clawson on 4/25/20.
 ////  Copyright © 2020 Ian Clawson Apps. All rights reserved.
@@ -42,10 +42,10 @@
 //    }
 //}
 //​
-//extension Lenient: Equatable where T: Equatable {}
-//extension Lenient: Hashable where T: Hashable {}
+//public extension Lenient: Equatable where T: Equatable {}
+//public extension Lenient: Hashable where T: Hashable {}
 //​
-//extension KeyedDecodingContainer {
+//public extension KeyedDecodingContainer {
 //    /// The auto-synthesized Decodable implementation only calls `decodeIfPresent` if the
 //    /// stored property type is an Optional. If you have an `@Lenient var name: String?`, then
 //    /// the stored property is a non-optional `Lenient<String>`, which means that the
@@ -58,7 +58,7 @@
 //    }
 //}
 //​
-//extension KeyedEncodingContainer {
+//public extension KeyedEncodingContainer {
 //    /// The auto-synthesized Encodable implementation is always going to call `encode()` on the
 //    /// underlying `Lenient` object, even if it wraps a nil value, because the `Lenient` itself is
 //    /// not nil. If you have an `@Lenient var name: String?`, then the stored property is a

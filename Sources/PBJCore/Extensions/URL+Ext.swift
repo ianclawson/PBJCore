@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension URL {
+public extension URL {
     var typeIdentifier: String? {
         return (try? resourceValues(forKeys: [.typeIdentifierKey]))?.typeIdentifier
     }

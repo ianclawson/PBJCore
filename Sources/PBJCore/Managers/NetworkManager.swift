@@ -1,6 +1,6 @@
 //
 //  NetworkManager.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 3/8/20.
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
@@ -48,7 +48,7 @@ import Foundation
 //    }
 //}
 //
-//extension NetworkManager {
+//public extension NetworkManager {
 //    @objc func reachabilityChanged(note: Notification) {
 //        
 //        let reachability = note.object as! Reachability

@@ -8,7 +8,7 @@
 #if !os(macOS)
 import UIKit
 
-extension UIImageView {
+public extension UIImageView {
     func setImageColor(color: UIColor) {
         let templateImage = self.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         self.image = templateImage

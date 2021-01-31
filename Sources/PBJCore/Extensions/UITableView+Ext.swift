@@ -1,6 +1,6 @@
 //
 //  TableView+Ext.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 2/6/20.
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
@@ -11,7 +11,7 @@ import UIKit
 
 // MARK: - Extensions
 
-extension UITableView {
+public extension UITableView {
     /// This method takes a lot of the brute force out of configuring table views, but also makes some assumptions that are important to note:
     /// 1.) the cell class passed in has an associate xib (becuase of the `self.register` below), and
     /// 2.) the `cellTypes` that are passed in assume that, in their Xibs, *their reuse identifier is the same as their classname.*
@@ -64,7 +64,7 @@ extension UITableView {
 
 // MARK: - Empty State Helpers
 
-extension UITableView {
+public extension UITableView {
     func setEmptyState(message: String, image: UIImage? = nil, detailMessage: String? = nil) {
         self.backgroundView = UIView.makeEmptyStateView(bounds: self.bounds, message: message, image: image, detailMessage: detailMessage)
     }
@@ -83,7 +83,7 @@ extension UITableView {
 
 // MARK: - Cell Builder Methods
 
-extension UITableView {
+public extension UITableView {
     
     func emptyCell() -> UITableViewCell {
         var cell = dequeueReusableCell(withIdentifier: UITableViewCell.reuseIdentifier)
@@ -140,7 +140,7 @@ extension UITableView {
 
 // MARK: - Convenience
 
-extension UITableView {
+public extension UITableView {
     func performDeselectRowsAt(_ indexPath: IndexPath) {
         beginUpdates()
         deselectRow(at: indexPath, animated: true)

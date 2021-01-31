@@ -4,7 +4,7 @@
 
 //
 //  AppDelegate.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 1/27/18.
 //  Copyright © 2018 Ian Clawson Apps. All rights reserved.

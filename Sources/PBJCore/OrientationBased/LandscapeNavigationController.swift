@@ -1,6 +1,6 @@
 //
 //  LandscapeNavigationController.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 5/3/18.
 //  Copyright © 2018 Ian Clawson Apps. All rights reserved.

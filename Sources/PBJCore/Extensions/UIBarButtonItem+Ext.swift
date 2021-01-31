@@ -1,6 +1,6 @@
 //
 //  UIBarButtonItem+Ext.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 2/19/20.
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
@@ -10,7 +10,7 @@ import Foundation
 #if !os(macOS)
 import UIKit
 
-extension UIBarButtonItem {
+public extension UIBarButtonItem {
     /// Convenience class method that makes a bar button from a custom button via a image.
     /// This is useful primarily when you need the ui frame of a bar button item. Regular ones don't have a frame,
     /// but by returning the custom view that you used to create the item, you can get the frame from the view.

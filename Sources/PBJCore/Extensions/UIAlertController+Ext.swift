@@ -1,6 +1,6 @@
 //
 //  UIAlertController+Ext.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 4/24/20.
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
@@ -10,7 +10,7 @@ import Foundation
 #if !os(macOS)
 import UIKit
 
-extension UIAlertController {
+public extension UIAlertController {
     convenience init(title: String, error: Error) {
         let message: String
         
@@ -29,7 +29,7 @@ extension UIAlertController {
     }
 }
 
-extension UIAlertAction {
+public extension UIAlertAction {
     
     class var ok: UIAlertAction {
         return UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -56,7 +56,7 @@ extension UIAlertAction {
     }
 }
 
-extension UIActivityViewController {
+public extension UIActivityViewController {
     func setSource(source: UIView?) {
         if let source = source {
             popoverPresentationController?.sourceView = source

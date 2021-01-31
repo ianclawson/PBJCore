@@ -8,7 +8,7 @@
 #if !os(macOS)
 import UIKit
 
-extension UIDevice {
+public extension UIDevice {
     class func isCurrentlyLandscape() -> Bool {
         return UIDevice.current.orientation.isValidInterfaceOrientation
             ? UIDevice.current.orientation.isLandscape
@@ -21,7 +21,7 @@ extension UIDevice {
     }
 }
 
-extension UIDeviceOrientation {
+public extension UIDeviceOrientation {
     var uiInterfaceOrientation: UIInterfaceOrientation {
         get {
             switch self {
@@ -73,7 +73,7 @@ extension UIDeviceOrientation {
     }
 }
 
-extension UIInterfaceOrientation {
+public extension UIInterfaceOrientation {
     var uiDeviceOrientation: UIDeviceOrientation {
         get {
             switch self {

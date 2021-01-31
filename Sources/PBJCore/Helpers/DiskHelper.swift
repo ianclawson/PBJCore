@@ -1,6 +1,6 @@
 //
 //  DiskHelper.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 2/9/20.
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
@@ -12,7 +12,7 @@ import Foundation
 #if !os(macOS)
 import UIKit
 
-class DiskHelper {
+public class DiskHelper {
     
     class func format(_ bytes: Int64, in units: ByteCountFormatter.Units = .useMB) -> String {
         let formatter = ByteCountFormatter()
@@ -76,7 +76,7 @@ class DiskHelper {
 
 }
 
-extension DiskHelper {
+public extension DiskHelper {
     class func sizeDescText(for sizeInBytes: NSNumber) -> String {
         let roundedSize = Int64(truncating: sizeInBytes)
         if roundedSize >= 1_000_000_000_000 {

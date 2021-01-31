@@ -1,6 +1,6 @@
 //
 //  Array+Ext.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 1/8/20.
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
@@ -8,27 +8,27 @@
 
 import Foundation
 
-extension Array {
-    public func take(_ elementsCount: Int) -> [Element] {
+public extension Array {
+    func take(_ elementsCount: Int) -> [Element] {
         let min = Swift.min(elementsCount, count)
         return Array(self[0..<min])
     }
     
-    public func takeLast(_ elementsCount: Int) -> [Element] {
+    func takeLast(_ elementsCount: Int) -> [Element] {
         let min = Swift.min(elementsCount, count)
         return Array(self.reversed()[0..<min]).reversed()
     }
 }
 
 // from SwiftyDraw
-extension Collection {
+public extension Collection {
     /// Returns the element at the specified index if it is within bounds, otherwise nil.
     subscript (safe index: Index) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
 }
 
-extension Array where Element: Hashable {
+public extension Array where Element: Hashable {
      func difference(from other: [Element]) -> [Element] {
          let thisSet = Set(self)
          let otherSet = Set(other)
@@ -36,15 +36,15 @@ extension Array where Element: Hashable {
      }
  }
 
-extension Sequence where Iterator.Element: Hashable {
+public extension Sequence where Iterator.Element: Hashable {
     func unique() -> [Iterator.Element] {
         var seen: [Iterator.Element: Bool] = [:]
         return self.filter { seen.updateValue(true, forKey: $0) == nil }
     }
 }
 
-// from alerts and pickers
-extension Array {
+// from AlertsAndPickers
+public extension Array {
     
     @discardableResult
     mutating func append(_ newArray: Array) -> CountableRange<Int> {
@@ -84,7 +84,7 @@ extension Array {
     }
 }
 
-extension Array where Element: Equatable {
+public extension Array where Element: Equatable {
     
     /// Remove Dublicates
     var unique: [Element] {
@@ -96,7 +96,7 @@ extension Array where Element: Equatable {
     ///
     /// - Parameter elements: array of elements to check.
     /// - Returns: true if array contains all given items.
-    public func contains(_ elements: [Element]) -> Bool {
+    func contains(_ elements: [Element]) -> Bool {
         guard !elements.isEmpty else { // elements array is empty
             return false
         }
@@ -113,7 +113,7 @@ extension Array where Element: Equatable {
     ///
     /// - Parameter item: item to check.
     /// - Returns: an array with all indexes of the given item.
-    public func indexes(of item: Element) -> [Int] {
+    func indexes(of item: Element) -> [Int] {
         var indexes: [Int] = []
         for index in 0..<self.count {
             if self[index] == item {
@@ -126,7 +126,7 @@ extension Array where Element: Equatable {
     /// Remove all instances of an item from array.
     ///
     /// - Parameter item: item to remove.
-    public mutating func removeAll(_ item: Element) {
+    mutating func removeAll(_ item: Element) {
         self = self.filter { $0 != item }
     }
     
@@ -136,7 +136,7 @@ extension Array where Element: Equatable {
     /// - parameter array: to chunk
     /// - parameter size: size of each chunk
     /// - returns: array elements chunked
-    public func chunk(size: Int = 1) -> [[Element]] {
+    func chunk(size: Int = 1) -> [[Element]] {
         var result = [[Element]]()
         var chunk = -1
         for (index, elem) in self.enumerated() {
@@ -178,7 +178,7 @@ public extension Array {
     }
 }
 
-extension Array where Element: Comparable {
+public extension Array where Element: Comparable {
     func containsSameElements(as other: [Element]) -> Bool {
         return self.count == other.count && self.sorted() == other.sorted()
     }

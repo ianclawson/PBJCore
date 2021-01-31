@@ -1,6 +1,6 @@
 //
 //  ToolTipGroup.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 2/15/20.
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
@@ -9,7 +9,7 @@
 #if !os(macOS)
 import UIKit
 
-extension UIView {
+public extension UIView {
     func toolTipForGroup(tooltip: ToolTip, offset: CGPoint? = nil) -> GroupToolTip {
         let frame = self.convert(self.bounds, to: UIApplication.shared.windows.first!)
         let offset = offset ?? .zero
@@ -17,7 +17,7 @@ extension UIView {
     }
 }
 
-struct GroupToolTip {
+public struct GroupToolTip {
     let tooltip: ToolTip
     let frame: CGRect
     let offset: CGPoint

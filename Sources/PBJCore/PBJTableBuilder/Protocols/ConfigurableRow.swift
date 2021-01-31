@@ -1,6 +1,6 @@
 //
 //  ConfigurableRow.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 2/22/20.
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.

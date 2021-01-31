@@ -1,6 +1,6 @@
 //
 //  UINavigationController+Ext.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 2/28/20.
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
@@ -9,7 +9,7 @@
 #if !os(macOS)
 import UIKit
 
-extension UINavigationController {
+public extension UINavigationController {
 //    func popToViewController<T: UIViewController>(ofType type: T.Type, animated: Bool) {
 //        for controller in self.viewControllers as Array {
 //            if controller.isKind(of: type) {

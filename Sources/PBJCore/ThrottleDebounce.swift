@@ -1,6 +1,6 @@
 //
 //  ThrottleDebounce.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 4/27/20.
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension TimeInterval {
+private extension TimeInterval {
 
     /**
      Checks if `since` has passed since `self`.

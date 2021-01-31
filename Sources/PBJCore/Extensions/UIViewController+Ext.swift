@@ -1,6 +1,6 @@
 //
 //  UIViewController+Ext.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 2/15/20.
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
@@ -9,7 +9,7 @@
 #if !os(macOS)
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     
     func dismissOrPop(animated: Bool, fireCompletionConcurrently: Bool = true, completion: (() -> Void)? = nil) {
         if self.navigationController?.canNavPop ?? false {
@@ -156,7 +156,7 @@ extension UIViewController {
 
 }
 
-extension UISearchResultsUpdating where Self: UIViewController {
+public extension UISearchResultsUpdating where Self: UIViewController {
     func setupSearchController(_ searchController: UISearchController, searchPlaceholderText: String?, withSearchResultsController: Bool = false, searchScopes: [String] = [], showsScopeBar: Bool? = nil) {
 //        navigationController?.navigationBar.prefersLargeTitles = true // idk
         extendedLayoutIncludesOpaqueBars = true

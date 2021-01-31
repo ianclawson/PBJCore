@@ -1,6 +1,6 @@
 //
 //  UIImage+Ext.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 2/15/20.
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
@@ -33,19 +33,8 @@ public enum ImageType : String, Codable {
     case gif
 }
 
-extension UIImage
-{
-//    convenience init?(symbolNameIfAvailable name: String)
-//    {
-//        if #available(iOS 13, *)
-//        {
-//            self.init(systemName: name)
-//        }
-//        else
-//        {
-//            return nil
-//        }
-//    }
+public extension UIImage {
+    
     class func symbolNameWithFallBack(name: String) -> UIImage? {
         if #available(iOS 13, *) {
             if let img = UIImage(systemName: name) {
@@ -101,7 +90,7 @@ extension UIImage
     }
 }
 
-extension UIImage {
+public extension UIImage {
     func convertToBase64EncodedString() -> String? {
         if let imageData = self.pngData() {
             return imageData.base64EncodedString()
@@ -241,7 +230,9 @@ extension UIImage {
         
         return UIImage(cgImage: context.makeImage()!)
     }
-    
+}
+
+extension UIImage {
     public convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
         let rect = CGRect(origin: .zero, size: size)
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)

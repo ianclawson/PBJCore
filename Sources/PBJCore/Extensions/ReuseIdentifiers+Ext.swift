@@ -1,6 +1,6 @@
 //
 //  ReuseIdentifiers+Ext.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 1/8/20.
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
@@ -10,19 +10,19 @@ import Foundation
 #if !os(macOS)
 import UIKit
 
-extension UITableViewCell {
+public extension UITableViewCell {
     static var reuseIdentifier: String {
         return String(describing: self)
     }
 }
 
-extension UITableViewHeaderFooterView {
+public extension UITableViewHeaderFooterView {
     static var reuseIdentifier: String {
         return String(describing: self)
     }
 }
 
-extension UICollectionReusableView {
+public extension UICollectionReusableView {
     static var reuseIdentifier: String {
         return String(describing: self)
     }

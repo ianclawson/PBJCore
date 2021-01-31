@@ -1,6 +1,6 @@
 //
 //  CollectionView+Ext.swift
-//  stars2apples
+//  PBJCore
 //
 //  Created by Ian Clawson on 2/15/20.
 //  Copyright © 2020 Ian Clawson Apps. All rights reserved.
@@ -9,7 +9,7 @@
 #if !os(macOS)
 import UIKit
 
-extension UICollectionView {
+public extension UICollectionView {
     func configure(
         delegate: UICollectionViewDelegate? = nil,
         dataSource: UICollectionViewDataSource? = nil,
@@ -71,7 +71,7 @@ extension UICollectionView {
 
 // MARK: - Empty State Helpers
 
-extension UICollectionView {
+public extension UICollectionView {
     func setEmptyState(message: String, image: UIImage? = nil, detailMessage: String? = nil) {
         self.backgroundView = UIView.makeEmptyStateView(bounds: self.bounds, message: message, image: image, detailMessage: detailMessage)
     }
