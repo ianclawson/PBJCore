@@ -7,6 +7,7 @@
 //
 
 import Foundation
+#if !os(macOS)
 import UIKit
 
 extension UITableViewCell {
@@ -26,3 +27,4 @@ extension UICollectionReusableView {
         return String(describing: self)
     }
 }
+#endif
