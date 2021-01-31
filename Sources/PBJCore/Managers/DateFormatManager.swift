@@ -34,30 +34,32 @@ public enum DateFormatType {
     }
 }
 
+// separate/duplicate functions for convenience in case I
+// get lazy and forget that they belong to `DateFormatManager`
 public extension DateFormatter {
     class func date(from: String, format: DateFormatType) -> Date? {
-        DateFormatManager.shared.formatter.dateFormat = format.formatString()
-        return DateFormatManager.shared.formatter.date(from: from)
+        return DateFormatManager.shared.date(from: from, format: format)
     }
     
     class func string(from: Date, format: DateFormatType) -> String {
-        DateFormatManager.shared.formatter.dateFormat = format.formatString()
-        return DateFormatManager.shared.formatter.string(from: from)
+        return DateFormatManager.shared.string(from: from, format: format)
     }
 }
 
 public class DateFormatManager {
+    
     public static let shared = DateFormatManager()
     
     // date formatters are expensive; share one across the entire application
     let formatter = DateFormatter()
     
-    // separate/duplicate functions for convenience in case I
-    // get lazy and forget that they belong to `DateFormatter`
     func date(from: String, format: DateFormatType) -> Date? {
-        return DateFormatter.date(from: from, format: format)
+        self.formatter.dateFormat = format.formatString()
+        return formatter.date(from: from)
     }
+    
     func string(from: Date, format: DateFormatType) -> String {
-        return DateFormatter.string(from: from, format: format)
+        self.formatter.dateFormat = format.formatString()
+        return formatter.string(from: from)
     }
 }
