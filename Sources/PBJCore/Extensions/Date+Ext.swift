@@ -456,6 +456,6 @@ public extension Date {
         return Date(timeIntervalSinceReferenceDate: timeRoundedToInterval)
     }
     var displayString: String {
-        return DateFormatHelper.string(from: self, format: .displayDayOfWeekMonthDayTime)
+        return DateFormatter.string(from: self, format: .displayDayOfWeekMonthDayTime)
     }
 }
