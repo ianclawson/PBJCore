@@ -10,7 +10,7 @@ import Foundation
 #if !os(macOS)
 import UIKit
 
-extension String {
+public extension String {
     var titlecased: String {
         let lowercaseWords = ["a", "an", "the", "and", "but", "for", "or", "at", "by", "from", "to"]
         
