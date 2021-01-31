@@ -10,33 +10,6 @@ import UIKit
 
 extension UIColor {
     
-    struct Compat {
-        static var cellContent: UIColor {
-            if #available(iOS 13, *) {
-                return .s2aCellContentColor
-            }
-            return .white
-        }
-        static var label: UIColor {
-            if #available(iOS 13.0, *) {
-                return .label
-            }
-            return .black
-        }
-        static var grayGroupBackground: UIColor {
-            if #available(iOS 13.0, *) {
-                return .systemGroupedBackground
-            }
-            return .groupTableViewBackground
-        }
-        static var systemBackground: UIColor {
-            if #available(iOS 13.0, *) {
-                return .systemBackground
-            }
-            return .white
-        }
-    }
-    
     static var pink: UIColor {
         return UIColor(red: 239/255,
                        green: 130/255,
