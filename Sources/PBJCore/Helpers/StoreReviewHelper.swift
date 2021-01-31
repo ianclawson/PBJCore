@@ -6,7 +6,6 @@
 //  Copyright © 2019 Ian Clawson Apps. All rights reserved.
 //
 
-import Foundation
 import StoreKit
 
 @available(iOS 10.3, macOS 10.14, *)

@@ -78,7 +78,7 @@ public class ToolTipQueue: UIViewController {
         window.makeKeyAndVisible()
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.2)
         
@@ -109,7 +109,7 @@ public class ToolTipQueue: UIViewController {
         view.alpha = 0
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         show(at: positionInQueue)
     }
