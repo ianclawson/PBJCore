@@ -17,7 +17,7 @@ public struct PBJAction {
     var image: UIImage? = nil
     var action: ((PBJAction) -> Void)?
     
-    init(title: String, style: Style = .default, image: UIImage? = nil, action: ((PBJAction) -> Void)? = nil)
+    public init(title: String, style: Style = .default, image: UIImage? = nil, action: ((PBJAction) -> Void)? = nil)
     {
         self.title = title
         self.style = style

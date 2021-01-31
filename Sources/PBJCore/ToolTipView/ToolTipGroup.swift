@@ -47,7 +47,7 @@ public struct GroupToolTip {
     }
 }
 
-class ToolTipQueue: UIViewController {
+public class ToolTipQueue: UIViewController {
     
     var tooltipGroups: [[GroupToolTip]] = []
     var presentingWindow: UIWindow?

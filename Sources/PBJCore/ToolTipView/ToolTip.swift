@@ -61,7 +61,7 @@ public class ToolTip: UIView {
         commonInit()
     }
     
-    init(message: String, style: Style = .dark, location: Location = .none, textWidth: Double = 100.0, topImage: UIImage? = nil) {
+    public init(message: String, style: Style = .dark, location: Location = .none, textWidth: Double = 100.0, topImage: UIImage? = nil) {
         self.message = message
         self.style = style
         self.location = location

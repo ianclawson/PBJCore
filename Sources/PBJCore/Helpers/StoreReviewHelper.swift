@@ -10,7 +10,7 @@ import Foundation
 import StoreKit
 
 @available(iOS 10.3, macOS 10.14, *)
-struct StoreReviewHelper {
+public struct StoreReviewHelper {
     static func checkAndAskForReview(hasAskedThisSession: Bool, numTimesAppOpened: Int, numTimesReviewPrompted: Int) -> Bool {
         
         // only ask once per session
