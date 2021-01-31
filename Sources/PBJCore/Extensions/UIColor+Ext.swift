@@ -9,7 +9,6 @@
 import UIKit
 
 extension UIColor {
-    
     static var pink: UIColor {
         return UIColor(red: 239/255,
                        green: 130/255,
