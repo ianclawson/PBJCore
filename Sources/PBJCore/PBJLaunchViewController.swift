@@ -20,7 +20,7 @@ public class PBJLaunchCondition: NSObject {
     }
 }
 
-public class PBJLaunchViewController: UIViewController {
+open class PBJLaunchViewController: UIViewController {
     
     private(set) var launchConditions = [PBJLaunchCondition]()
     
