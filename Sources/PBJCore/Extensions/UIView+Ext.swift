@@ -11,9 +11,9 @@ import UIKit
 
 public extension UIView {
     
-//    public convenience init(superView: UIView, padding: CGFloat) {
-//        self.init(frame: CGRect(x: superView.x() + padding, y: superView.y() + padding, width: superView.width() - padding*2, height: superView.height() - padding*2))
-//    }
+    convenience init(superView: UIView, padding: CGFloat) {
+        self.init(frame: CGRect(x: superView.frame.minX + padding, y: superView.frame.minY + padding, width: superView.frame.width - padding*2, height: superView.frame.height - padding*2))
+    }
     
     func pin(to view: UIView) {
         NSLayoutConstraint.activate([
