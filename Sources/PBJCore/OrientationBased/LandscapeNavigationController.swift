@@ -9,17 +9,17 @@
 #if !os(macOS)
 import UIKit
 
-class LandscapeNavigationController: UINavigationController {
+public class LandscapeNavigationController: UINavigationController {
 
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscape
     }
     
-    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+    public override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
         return getPreferredOrientation()
     }
     
-    func getPreferredOrientation() -> UIInterfaceOrientation {
+    private func getPreferredOrientation() -> UIInterfaceOrientation {
         if UIDevice.current.orientation == .landscapeLeft {
             return .landscapeRight
         } else if UIDevice.current.orientation == .landscapeRight {

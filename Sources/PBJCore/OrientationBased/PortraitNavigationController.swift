@@ -9,13 +9,13 @@
 #if !os(macOS)
 import UIKit
 
-class PortraitNavigationController: UINavigationController {
+public class PortraitNavigationController: UINavigationController {
 
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
     
-    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+    public override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
         return .portrait
     }
 
