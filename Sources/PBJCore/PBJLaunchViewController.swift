@@ -13,7 +13,7 @@ public class PBJLaunchCondition: NSObject {
     private(set) var condition: (() -> Bool)
     private(set) var action: ((_ completionHandler: @escaping ((_ error: Error?) -> Void)) -> Void)
 
-    init(condition: @escaping (() -> Bool), action: @escaping (_ completionHandler: @escaping ((_ error: Error?) -> Void)) -> Void) {
+    public init(condition: @escaping (() -> Bool), action: @escaping (_ completionHandler: @escaping ((_ error: Error?) -> Void)) -> Void) {
         self.condition = condition
         self.action = action
         super.init()
@@ -22,11 +22,11 @@ public class PBJLaunchCondition: NSObject {
 
 open class PBJLaunchViewController: UIViewController {
     
-    private(set) var launchConditions = [PBJLaunchCondition]()
+    open private(set) var launchConditions = [PBJLaunchCondition]()
     
     private var launchView: UIView?
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
 
         guard let storyboardName = Bundle.main.object(forInfoDictionaryKey: "UILaunchStoryboardName") as? String else {
@@ -109,11 +109,11 @@ open class PBJLaunchViewController: UIViewController {
         }
     }
 
-    func handleLaunchError(_ error: Error) {
+    open func handleLaunchError(_ error: Error) {
         print("Launch Error: %@", error.localizedDescription)
     }
     
-    func finishLaunching() { }
+    open func finishLaunching() { }
 
     func rst_dispatch_sync_on_main_thread(_ block:  @escaping () -> ()) {
         if Thread.isMainThread {
