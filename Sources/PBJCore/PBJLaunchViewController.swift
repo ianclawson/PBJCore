@@ -9,7 +9,7 @@
 #if !os(macOS)
 import UIKit
 
-class PBJLaunchCondition: NSObject {
+public class PBJLaunchCondition: NSObject {
     private(set) var condition: (() -> Bool)
     private(set) var action: ((_ completionHandler: @escaping ((_ error: Error?) -> Void)) -> Void)
 
@@ -20,13 +20,13 @@ class PBJLaunchCondition: NSObject {
     }
 }
 
-class PBJLaunchViewController: UIViewController {
+public class PBJLaunchViewController: UIViewController {
     
     private(set) var launchConditions = [PBJLaunchCondition]()
     
     private var launchView: UIView?
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         guard let storyboardName = Bundle.main.object(forInfoDictionaryKey: "UILaunchStoryboardName") as? String else {
@@ -62,7 +62,7 @@ class PBJLaunchViewController: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         handleLaunchConditions()
