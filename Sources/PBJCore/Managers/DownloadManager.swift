@@ -15,10 +15,10 @@ import Foundation
 #if !os(macOS)
 public class DownloadManager: NSObject, URLSessionDelegate, URLSessionDownloadDelegate {
     
-    static var shared = DownloadManager()
+    public static var shared = DownloadManager()
     
     private var session: URLSession?
-    var activeDownloadTasks: [URLSessionDownloadTask] = []
+    private var activeDownloadTasks: [URLSessionDownloadTask] = []
     
     lazy var downloadQueue: OperationQueue = {
         var queue = OperationQueue()
