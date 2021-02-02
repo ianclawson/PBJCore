@@ -69,7 +69,7 @@ open class PBJLaunchViewController: UIViewController {
     }
 
     
-    func handleLaunchConditions() {
+    public func handleLaunchConditions() {
         handleLaunchCondition(at: 0)
     }
     
