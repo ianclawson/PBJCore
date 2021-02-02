@@ -28,8 +28,8 @@ public class DownloadManager: NSObject, URLSessionDelegate, URLSessionDownloadDe
         return queue
     }()
     
-    typealias ProgressHandler = (Float) -> ()
-    typealias EndHandler = (Data?, Error?) -> ()
+    public typealias ProgressHandler = (Float) -> ()
+    public typealias EndHandler = (Data?, Error?) -> ()
     public var onProgress : ProgressHandler?
     public var onFinish : EndHandler?
     
