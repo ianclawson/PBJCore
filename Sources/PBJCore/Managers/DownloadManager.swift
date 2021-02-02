@@ -30,8 +30,8 @@ public class DownloadManager: NSObject, URLSessionDelegate, URLSessionDownloadDe
     
     typealias ProgressHandler = (Float) -> ()
     typealias EndHandler = (Data?, Error?) -> ()
-    var onProgress : ProgressHandler?
-    var onFinish : EndHandler?
+    public var onProgress : ProgressHandler?
+    public var onFinish : EndHandler?
     
     private override init() {
         super.init()
