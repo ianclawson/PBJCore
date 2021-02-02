@@ -13,7 +13,7 @@
 import Foundation
 
 #if !os(macOS)
-class DownloadManager: NSObject, URLSessionDelegate, URLSessionDownloadDelegate {
+public class DownloadManager: NSObject, URLSessionDelegate, URLSessionDownloadDelegate {
     
     static var shared = DownloadManager()
     
@@ -41,7 +41,7 @@ class DownloadManager: NSObject, URLSessionDelegate, URLSessionDownloadDelegate 
         session = URLSession(configuration: configuration, delegate: self, delegateQueue: OperationQueue.main)
     }
     
-    func start(_ url: URL) {
+    public func start(_ url: URL) {
         downloadQueue.addOperation {
             print("<><><><><><><><><><><> - start")
             guard let downloadTask = self.session?.downloadTask(with: url) else { return }
@@ -50,7 +50,7 @@ class DownloadManager: NSObject, URLSessionDelegate, URLSessionDownloadDelegate 
         }
     }
     
-    func cancel() {
+    public func cancel() {
         print("<><><><><><><><><><><> - cancel")
         activeDownloadTasks.forEach({ $0.cancel() })
         self.onProgress = nil
@@ -75,7 +75,7 @@ class DownloadManager: NSObject, URLSessionDelegate, URLSessionDownloadDelegate 
     
     // DELEGATE METHODS
     
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+    public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         if totalBytesExpectedToWrite > 0 {
             if let onProgress = onProgress {
                 calculateProgress(session: session, completionHandler: onProgress)
@@ -84,7 +84,7 @@ class DownloadManager: NSObject, URLSessionDelegate, URLSessionDownloadDelegate 
         }
     }
     
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+    public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         do {
             let downloadedData = try Data(contentsOf: location)
             DispatchQueue.main.async(execute: {
@@ -106,7 +106,7 @@ class DownloadManager: NSObject, URLSessionDelegate, URLSessionDownloadDelegate 
         }
     }
     
-    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+    public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         if let error = error {
             print("<><><><><><><><><><><> Task completed: \(task), error: \(error)")
             print(error)
