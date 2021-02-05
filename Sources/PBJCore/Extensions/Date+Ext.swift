@@ -213,6 +213,15 @@ public extension Date {
         }
     }
     
+    /// Subtract calendar component to date.
+    ///
+    /// - Parameters:
+    ///   - component: component type.
+    ///   - value: multiples of compnenet to subtract.
+    mutating func subtract(_ component: Calendar.Component, value: Int) {
+        add(component, value: -value)
+    }
+    
     /// Date by adding multiples of calendar component.
     ///
     /// - Parameters:
@@ -245,6 +254,16 @@ public extension Date {
         default:
             return self
         }
+    }
+    
+    /// Date by subtracting multiples of calendar component.
+    ///
+    /// - Parameters:
+    ///   - component: component type.
+    ///   - value: multiples of compnenets to subtract.
+    /// - Returns: original date + multiples of compnenet subtracted.
+    func subtracting(_ component: Calendar.Component, value: Int) -> Date {
+        return adding(component, value: -value)
     }
     
     /// Data at the beginning of calendar component.
