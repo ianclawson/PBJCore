@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct FileHelper {
-    @discardableResult static func addSkipBackupAttribute(url: URL) throws -> Bool {
+public struct FileHelper {
+    @discardableResult public static func addSkipBackupAttribute(url: URL) throws -> Bool {
         var fileUrl = url
         do {
             if FileManager.default.fileExists(atPath: fileUrl.path) {
@@ -24,7 +24,7 @@ struct FileHelper {
         }
     }
     
-    @discardableResult static func removeSkipBackupAttribute(url: URL) throws -> Bool {
+    @discardableResult public static func removeSkipBackupAttribute(url: URL) throws -> Bool {
         var fileUrl = url
         do {
             if FileManager.default.fileExists(atPath: fileUrl.path) {
