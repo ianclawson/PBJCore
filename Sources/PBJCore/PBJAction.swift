@@ -17,8 +17,7 @@ public struct PBJAction {
     var image: UIImage? = nil
     var action: ((PBJAction) -> Void)?
     
-    public init(title: String, style: Style = .default, image: UIImage? = nil, action: ((PBJAction) -> Void)? = nil)
-    {
+    public init(title: String, style: Style = .default, image: UIImage? = nil, action: ((PBJAction) -> Void)? = nil) {
         self.title = title
         self.style = style
         self.image = image
@@ -55,16 +54,14 @@ public extension PBJAction {
 @available(iOS 13, *)
 public extension PBJAction.Style {
     var menuAttributes: UIMenuElement.Attributes {
-        switch self
-        {
+        switch self {
         case .default, .cancel, .selected: return []
         case .destructive: return  .destructive
         }
     }
     
     var menuState: UIMenuElement.State {
-        switch self
-        {
+        switch self {
         case .default, .cancel, .destructive: return .off
         case .selected: return .on
         }
@@ -72,8 +69,7 @@ public extension PBJAction.Style {
 }
 
 public extension UIAlertAction {
-    convenience init(_ action: PBJAction)
-    {
+    convenience init(_ action: PBJAction) {
         self.init(title: action.title, style: action.style.alertActionStyle) { (alertAction) in
             action.action?(action)
         }
@@ -91,11 +87,10 @@ public extension UIPreviewAction {
 }
 
 public extension UIAlertController {
-    convenience init(actions: [PBJAction]) {
-        self.init(title: nil, message: nil, preferredStyle: .actionSheet)
+    convenience init(title: String? = nil, message: String? = nil, actions: [PBJAction]) {
+        self.init(title: title, message: message, preferredStyle: .actionSheet)
         
-        for action in actions.alertActions
-        {
+        for action in actions.alertActions {
             self.addAction(action)
         }
     }
