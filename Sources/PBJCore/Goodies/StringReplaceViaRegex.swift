@@ -3,7 +3,7 @@
 //  PBJCore
 //
 //  Created by Ian Clawson on 1/20/21.
-//  Copyright © 2021 Ian Clawson Apps. All rights reserved.
+//  From: Dave DeLong via Slack.
 //
 
 import Foundation
