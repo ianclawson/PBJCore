@@ -1,9 +1,10 @@
+//  From: Dave DeLong via Slack.
+
 //
 //  StringReplaceViaRegex.swift
 //  PBJCore
 //
 //  Created by Ian Clawson on 1/20/21.
-//  From: Dave DeLong via Slack.
 //
 
 import Foundation

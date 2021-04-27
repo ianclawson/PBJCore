@@ -1,11 +1,13 @@
+//  From: https://christianselig.com/2021/04/efficient-average-color/
+
 //
 //  SeligAverageColor.swift
 //  PBJCore
 //
 //  Created by Ian Clawson on 4/2/21.
-//  From: https://christianselig.com/2021/04/efficient-average-color/
 //
 
+#if !os(macOS)
 import Foundation
 import UIKit
 
@@ -125,3 +127,4 @@ extension UIImage {
         return UInt8((pixelData >> 0) & 255)
     }
 }
+#endif
