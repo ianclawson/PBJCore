@@ -16,8 +16,9 @@ public extension UICollectionView {
         prefetchDataSource: UICollectionViewDataSourcePrefetching? = nil,
         dragDelegate: UICollectionViewDragDelegate? = nil,
         dropDelegate: UICollectionViewDropDelegate? = nil,
-        cellTypes: [UICollectionViewCell.Type],
-        headerTypes: [UICollectionReusableView.Type] = []
+        cellClassTypes: [UICollectionViewCell.Type] = [],
+        cellNibTypes: [UICollectionViewCell.Type] = [],
+        headerNibTypes: [UICollectionReusableView.Type] = []
     ) {
         if let delegate = delegate {
             self.delegate = delegate
@@ -34,13 +35,16 @@ public extension UICollectionView {
             self.dragInteractionEnabled = true
             self.reorderingCadence = .fast
         }
-        for cellType in cellTypes {
+        for cellType in cellClassTypes {
+            self.register(cellType, forCellWithReuseIdentifier: cellType.reuseIdentifier)
+        }
+        for cellType in cellNibTypes {
             self.register(
                 UINib(nibName: cellType.reuseIdentifier, bundle: nil),
                 forCellWithReuseIdentifier: cellType.reuseIdentifier
             )
         }
-        for headerType in headerTypes {
+        for headerType in headerNibTypes {
             self.register(
                 UINib(nibName: headerType.reuseIdentifier, bundle: nil),
                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,

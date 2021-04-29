@@ -21,14 +21,16 @@ public extension UITableView {
     ///   - delegate: delegate
     ///   - dataSource: dataSource
     ///   - prefetchDataSource: prefetchDataSource
-    ///   - cellTypes: cellTypes
+    ///   - cellClassTypes: cellClassTypes
+    ///   - cellNibTypes: cellNibTypes
     func configure(
         delegate: UITableViewDelegate? = nil,
         dataSource: UITableViewDataSource? = nil,
         prefetchDataSource: UITableViewDataSourcePrefetching? = nil,
         dragDelegate: UITableViewDragDelegate? = nil,
         dropDelegate: UITableViewDropDelegate? = nil,
-        cellTypes: [UITableViewCell.Type]
+        cellClassTypes: [UITableViewCell.Type] = [],
+        cellNibTypes: [UITableViewCell.Type] = []
     ) {
         if let delegate = delegate {
             self.delegate = delegate
@@ -44,7 +46,10 @@ public extension UITableView {
             self.dropDelegate = dropDelegate
             self.dragInteractionEnabled = true
         }
-        for cellType in cellTypes {
+        for cellType in cellClassTypes {
+            self.register(cellType, forCellReuseIdentifier: cellType.reuseIdentifier)
+        }
+        for cellType in cellNibTypes {
             self.register(
                 UINib(nibName: cellType.reuseIdentifier, bundle: nil),
                 forCellReuseIdentifier: cellType.reuseIdentifier
