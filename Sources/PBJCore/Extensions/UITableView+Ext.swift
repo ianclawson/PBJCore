@@ -98,13 +98,30 @@ public extension UITableView {
         return cell!
     }
     
-    func defaultCell(titleText: String, image: UIImage? = nil, accessory: UITableViewCell.AccessoryType = .none, reuseIdentifier: String = "defaultCell") -> UITableViewCell {
+    enum DefaultCellType {
+        case normal
+        case appIcon
+    }
+    
+    func defaultCell(titleText: String, image: UIImage? = nil, accessory: UITableViewCell.AccessoryType = .none, reuseIdentifier: String = "defaultCell", type: DefaultCellType = .normal) -> UITableViewCell {
         var cell = dequeueReusableCell(withIdentifier: reuseIdentifier)
         if (cell == nil) {
             cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: reuseIdentifier)
         }
         cell?.textLabel?.text = titleText
-        cell?.imageView?.image = image
+        switch type {
+        case .normal:
+            cell?.imageView?.image = image
+        case .appIcon:
+            cell?.imageView?.layer.masksToBounds = true
+            cell?.imageView?.layer.cornerRadius = 13
+            if #available(iOS 13.0, *)
+            {
+                cell?.imageView?.layer.cornerCurve = CALayerCornerCurve.continuous
+            }
+            cell?.imageView?.image = image
+        }
+        
         cell?.accessoryType = accessory
         return cell!
     }
